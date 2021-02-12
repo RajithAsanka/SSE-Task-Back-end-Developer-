@@ -19,7 +19,7 @@ SOAP Web Service created with the Spring Boot Starter Web Services. When creatin
 /src/main/resources/core-bank-details.xsd
 
 ##### Sample get account balance request and response.  
-![](images/xsd.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/xsd.png?raw=true)
 
 To do the mapping from XML to Java and Java to XML, JAXB (Java API for XML binding) used.</Br>
 To generate the Java objects based on the XSD Maven JAXB Plugin defined in the pom.xml. Also wsdl4j dependency added to the pom.xml to generate the WSDl with spring web services.
@@ -27,7 +27,7 @@ To generate the Java objects based on the XSD Maven JAXB Plugin defined in the p
 ##### URL of the WSDL - http://localhost:8082/dummy-core-bank/ws/corebank.wsdl
 
 Wizdler browser plugin and SOAP-UI used to test the SOAP end points during the development time.</BR></BR>
-![](images/wsdl.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/wsdl.png?raw=true)
 </BR>
 
  H2 In-memory database used for the manage data in memory,  with spring boot + SOAP web services.
@@ -59,7 +59,7 @@ resources/wsdl/corebank.wsdl
 ##### URL of the swagger Ui - http://localhost:8083/integrator-service/swagger-ui.html
 
 ## Exposed rest end points.</Br>
-![](images/restendpoints.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/restendpoints.png?raw=true)
 </BR>
 
 ###### SERVER CONFIGURATIONS </BR> 
@@ -77,7 +77,7 @@ server.servlet.context-path=/integrator-service </BR>
 ##### java -jar integrator-service-0.0.1-SNAPSHOT.jar - to run dummy Integrator Service
 
 ## Exposed rest end points.</Br>
-![](images/restendpoints.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/restendpoints.png?raw=true)
 
 ###### Get account balance of particular account - @GetMapping
 ###### URL  - http://localhost:8083/integrator-service/rest/api/v1/get/account/balance/by/accountNo
@@ -86,7 +86,7 @@ return the account balance of particular account if exists in the dummy core ban
 
 
 ###### Sample Success Request
-![](images/1.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/1.png?raw=true)
 
 ###### Get total account balance - @GetMapping
 ###### URL  - http://localhost:8083/integrator-service/rest/api/v1/get/total/account/balance/by/userId
@@ -94,7 +94,7 @@ return the account balance of particular account if exists in the dummy core ban
 return the total account balance of particular user if exists in the dummy core bank database other wise return error messages.
 
 ###### Sample Success Request
-![](images/2.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/2.png?raw=true)
 
 ###### Make Fund Transfer to Own Accounts / Make Fund Transfer to other Accounts - @PostMapping
 ###### URL  - http://localhost:8083/integrator-service/rest/api/v1/make/fundtransfer
@@ -110,9 +110,9 @@ make the transaction according to fund trasfer type and return the transaction d
 ###### THIRDPARTY - Make Fund Transfer to other Accounts
 
 ###### Sample Success Request
-![](images/3.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/3.png?raw=true)
 
 ###### Sample Falied Request
-![](images/4.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/4.png?raw=true)
 
 
