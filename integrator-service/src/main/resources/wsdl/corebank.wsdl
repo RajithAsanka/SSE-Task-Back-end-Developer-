@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.dummy-core-bank.com/ws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.dummy-core-bank.com/ws" targetNamespace="http://www.dummy-core-bank.com/ws">
+  <wsdl:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.dummy-core-bank.com/ws">
+    <xs:element name="getAccountBalanceByAccNoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountNo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAccountBalanceByAccNoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountInfo" type="tns:accountInfo"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="accountInfo">
+        <xs:sequence>
+            <xs:element name="accountNo" type="xs:string"/>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="balance" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getTotalAccountBalanceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTotalAccountBalanceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="totalUserAccountBalanceInfo" type="tns:totalUserAccountBalanceInfo"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="totalUserAccountBalanceInfo">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="accountDetails" type="xs:string"/>
+            <xs:element name="totalBalanceForUser" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="fundTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fundTransferType" type="xs:string"/>
+                <xs:element name="userId" type="xs:string"/>
+                <xs:element name="fromAccountNO" type="xs:string"/>
+                <xs:element name="toAccountNO" type="xs:string"/>
+                <xs:element name="amount" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fundTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xs:element name="fundTransferInfo" type="tns:fundTransferInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="fundTransferInfo">
+        <xs:sequence>
+            <xs:element name="debitUserId" type="xs:string"/>
+            <xs:element name="debitAccountNo" type="xs:string"/>
+            <xs:element name="debitAccountBalance" type="xs:decimal"/>
+            <xs:element name="creditUserId" type="xs:string"/>
+            <xs:element name="creditAccountNo" type="xs:string"/>
+            <xs:element name="creditAccountBalance" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="fundTransferRequest">
+    <wsdl:part element="tns:fundTransferRequest" name="fundTransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBalanceByAccNoRequest">
+    <wsdl:part element="tns:getAccountBalanceByAccNoRequest" name="getAccountBalanceByAccNoRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalAccountBalanceResponse">
+    <wsdl:part element="tns:getTotalAccountBalanceResponse" name="getTotalAccountBalanceResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="fundTransferResponse">
+    <wsdl:part element="tns:fundTransferResponse" name="fundTransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTotalAccountBalanceRequest">
+    <wsdl:part element="tns:getTotalAccountBalanceRequest" name="getTotalAccountBalanceRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAccountBalanceByAccNoResponse">
+    <wsdl:part element="tns:getAccountBalanceByAccNoResponse" name="getAccountBalanceByAccNoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CoreBankPort">
+    <wsdl:operation name="fundTransfer">
+      <wsdl:input message="tns:fundTransferRequest" name="fundTransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:fundTransferResponse" name="fundTransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBalanceByAccNo">
+      <wsdl:input message="tns:getAccountBalanceByAccNoRequest" name="getAccountBalanceByAccNoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getAccountBalanceByAccNoResponse" name="getAccountBalanceByAccNoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalAccountBalance">
+      <wsdl:input message="tns:getTotalAccountBalanceRequest" name="getTotalAccountBalanceRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:getTotalAccountBalanceResponse" name="getTotalAccountBalanceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CoreBankPortSoap11" type="tns:CoreBankPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="fundTransfer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="fundTransferRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="fundTransferResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountBalanceByAccNo">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getAccountBalanceByAccNoRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAccountBalanceByAccNoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTotalAccountBalance">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getTotalAccountBalanceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTotalAccountBalanceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CoreBankPortService">
+    <wsdl:port binding="tns:CoreBankPortSoap11" name="CoreBankPortSoap11">
+      <soap:address location="http://localhost:8082/dummy-core-bank/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,83 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.dummy-core-bank.com/ws"
+           targetNamespace="http://www.dummy-core-bank.com/ws" elementFormDefault="qualified">
+    <xs:element name="getAccountBalanceByAccNoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountNo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAccountBalanceByAccNoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="accountInfo" type="tns:accountInfo"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="accountInfo">
+        <xs:sequence>
+            <xs:element name="accountNo" type="xs:string"/>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="balance" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="getTotalAccountBalanceRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="userId" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getTotalAccountBalanceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="totalUserAccountBalanceInfo" type="tns:totalUserAccountBalanceInfo"/>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="totalUserAccountBalanceInfo">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:string"/>
+            <xs:element name="accountDetails" type="xs:string"/>
+            <xs:element name="totalBalanceForUser" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="fundTransferRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fundTransferType" type="xs:string"/>
+                <xs:element name="userId" type="xs:string"/>
+                <xs:element name="fromAccountNO" type="xs:string"/>
+                <xs:element name="toAccountNO" type="xs:string"/>
+                <xs:element name="amount" type="xs:decimal"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="fundTransferResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xs:element name="fundTransferInfo" type="tns:fundTransferInfo"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="fundTransferInfo">
+        <xs:sequence>
+            <xs:element name="debitUserId" type="xs:string"/>
+            <xs:element name="debitAccountNo" type="xs:string"/>
+            <xs:element name="debitAccountBalance" type="xs:decimal"/>
+            <xs:element name="creditUserId" type="xs:string"/>
+            <xs:element name="creditAccountNo" type="xs:string"/>
+            <xs:element name="creditAccountBalance" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
