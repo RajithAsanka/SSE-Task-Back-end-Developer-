@@ -27,6 +27,7 @@ To generate the Java objects based on the XSD Maven JAXB Plugin defined in the p
 ##### URL of the WSDL - http://localhost:8082/dummy-core-bank/ws/corebank.wsdl
 
 Wizdler browser plugin and SOAP-UI used to test the SOAP end points during the development time.</BR></BR>
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/wsdl.png?raw=true)
 ![](images/wsdl.PNG)
 </BR>
 
