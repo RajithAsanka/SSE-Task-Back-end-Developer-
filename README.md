@@ -88,6 +88,9 @@ return the account balance of particular account if exists in the dummy core ban
 ###### Sample Success Request
 ![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/1.png?raw=true)
 
+###### Sample Failed Request
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/5.PNG?raw=true)
+
 ###### Get total account balance - @GetMapping
 ###### URL  - http://localhost:8083/integrator-service/rest/api/v1/get/total/account/balance/by/userId
 ###### Expected parameter name - userId
@@ -113,6 +116,6 @@ make the transaction according to fund trasfer type and return the transaction d
 ![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/3.png?raw=true)
 
 ###### Sample Falied Request
-![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/4.png?raw=true)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/6.PNG?raw=true)
 
 
