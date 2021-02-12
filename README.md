@@ -99,6 +99,9 @@ return the total account balance of particular user if exists in the dummy core 
 ###### Sample Success Request
 ![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/2.png?raw=true)
 
+###### Sample Failed Request
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/6.PNG?raw=true)
+
 ###### Make Fund Transfer to Own Accounts / Make Fund Transfer to other Accounts - @PostMapping
 ###### URL  - http://localhost:8083/integrator-service/rest/api/v1/make/fundtransfer
 ###### Expected parameters,
