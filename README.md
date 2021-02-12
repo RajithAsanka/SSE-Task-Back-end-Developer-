@@ -19,7 +19,7 @@ SOAP Web Service created with the Spring Boot Starter Web Services. When creatin
 /src/main/resources/core-bank-details.xsd
 
 ##### Sample get account balance request and response.  
-![](images/xsd.PNG)
+![alt text](https://github.com/RajithAsanka/SSE-Task-Back-end-Developer-/blob/main/images/xsd.png?raw=true)
 
 To do the mapping from XML to Java and Java to XML, JAXB (Java API for XML binding) used.</Br>
 To generate the Java objects based on the XSD Maven JAXB Plugin defined in the pom.xml. Also wsdl4j dependency added to the pom.xml to generate the WSDl with spring web services.
